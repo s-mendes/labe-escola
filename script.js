@@ -2,6 +2,7 @@
 const classes = ["HC1", "JS1", "JS2", "REST1", "REST2"];
 const students = ["Marcos Socrates Pontes", "Ruan Helenice da Silva Pinto", "Ítalo Souza Peireira", "Samuel Mendes"]; */
 
+// Cursos oferecidos pela escola
 
 let courses = [
     {
@@ -23,6 +24,8 @@ let courses = [
         price: 2000
     }
 ]
+
+// Turmas do curso
 
 let classes = [
     {
@@ -99,6 +102,7 @@ let classes = [
     }
 ]
 
+// Estudantes Matriculados
 
 let students = [
     {
@@ -130,15 +134,70 @@ let students = [
     }
 ]
 
-const courseInterest = (nInterest) => {
-    if (nInterest <= 2) {
-        let totalPrice = courses[queryCourse].price * 0.8
-        console.log(`O curso ${courses[queryCourse].course} ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice/nInterest).toFixed(2)}. Foi concedido um desconto de 20%`)
-    } else {
-        console.log(`O curso ${courses[queryCourse].course} ficou no total de R$ ${courses[queryCourse].price.toFixed(2)}. Em ${nInterest}x de ${(courses[queryCourse].price/nInterest).toFixed(2)}.`)
+// const courseInterest = (nInterest) => {
+//     if (nInterest <= 2) {
+//         let totalPrice = courses[queryCourse].price * 0.8
+//         console.log(`O curso ${courses[queryCourse].course} ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice/nInterest).toFixed(2)}. Foi concedido um desconto de 20%`)
+//     } else {
+//         console.log(`O curso ${courses[queryCourse].course} ficou no total de R$ ${courses[queryCourse].price.toFixed(2)}. Em ${nInterest}x de ${(courses[queryCourse].price/nInterest).toFixed(2)}.`)
+//     }
+// };
+
+// const queryCourse = Number(prompt("Digite o número de acordo com o curso desejado:\n 1- HTML\n2-Javascript\n3-APIs REST"))-1;
+// const queryInterest = Number(prompt("Quantas vezes você deseja parcelar o curso?"));
+// courseInterest(queryInterest);
+
+// Função para buscar dados do curso
+
+const buscarCurso = (nomeCurso) => {
+    for (let i = 0; i < courses.length; i++) {
+        if (courses[i].course === nomeCurso) {
+            return courses[i];
+        }
     }
+    return `Curso não encontrado`
 }
 
-const queryCourse = Number(prompt("Digite o número de acordo com o curso desejado:\n 1- HTML\n2-Javascript\n3-APIs REST"))-1
-const queryInterest = Number(prompt("Quantas vezes você deseja parcelar o curso?"))
-courseInterest(queryInterest)
+// console.log(buscarCurso(prompt("Digite o nome do curso")));
+
+// Função para buscar turma
+
+const buscarTurma = (nomeTurma) => {
+    for (let i = 0; i < classes.length; i++) {
+        if (classes[i].class === nomeTurma) {
+            return classes[i];
+        }
+    }
+    return `Turma não encontrada`
+}
+
+// buscarTurma(prompt("Digite o nome da turma"))
+
+// Função para buscar aluno
+
+const buscarAluno = (nomeAluno) => {
+    for (let i = 0; i < students.length; i++) {
+        if (students[i].student === nomeAluno) {
+            return students[i]
+        } 
+    }
+    return `Aluno não encontrado`
+}
+
+// console.log(buscarAluno(prompt(`Digite o nome do aluno`)));
+
+// Função para matricular estudantes
+
+const matricularAluno = (nome, curso, turma, numParcelas) => {
+    let novoAluno = {
+        student: nome,
+        course: curso,
+        class: turma,
+        nInterest: numParcelas
+    }
+    students.push(novoAluno)
+    console.log(`Novo aluno matriculado:\n`)
+    console.log(students[students.length -1])
+}
+
+matricularAluno("Samuel", "JavaScript", "Ozemela", 1)
