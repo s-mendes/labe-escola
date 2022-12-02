@@ -175,29 +175,43 @@ const buscarTurma = (nomeTurma) => {
 
 // Função para buscar aluno
 
-const buscarAluno = (nomeAluno) => {
+const searchStudent = (studentName) => {
     for (let i = 0; i < students.length; i++) {
-        if (students[i].student === nomeAluno) {
+        if (students[i].student === studentName) {
             return students[i]
         } 
     }
     return `Aluno não encontrado`
 }
 
-// console.log(buscarAluno(prompt(`Digite o nome do aluno`)));
+// console.log(searchStudent(prompt(`Digite o nome do aluno`)));
 
 // Função para matricular estudantes
 
-const matricularAluno = (nome, curso, turma, numParcelas) => {
-    let novoAluno = {
-        student: nome,
-        course: curso,
-        class: turma,
-        nInterest: numParcelas
+const registerStudent = (studentName, course, className, nInterest) => {
+    let discount = nInterest > 0 && nInterest <= 2;
+    let coursePrice = buscarCurso(course).price
+    let interestValue;
+
+    discount ? interestValue = coursePrice*0.8/nInterest : interestValue = coursePrice/nInterest
+    
+    let newStudent = {
+        student: studentName,
+        class: className,
+        course: course,
+        price: coursePrice,
+        nInrerest: nInterest,
+        discount: discount,
+        interest: interestValue
     }
-    students.push(novoAluno)
+
+    students.push(newStudent)
     console.log(`Novo aluno matriculado:\n`)
     console.log(students[students.length -1])
 }
 
-matricularAluno("Samuel", "JavaScript", "Ozemela", 1)
+registerStudent("Samuel", "JavaScript", "Ozemela", 2)
+
+// Função para parcelar o curso
+
+
