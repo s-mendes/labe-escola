@@ -134,18 +134,44 @@ let students = [
     }
 ]
 
-// const courseInterest = (nInterest) => {
-//     if (nInterest <= 2) {
-//         let totalPrice = courses[queryCourse].price * 0.8
-//         console.log(`O curso ${courses[queryCourse].course} ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice/nInterest).toFixed(2)}. Foi concedido um desconto de 20%`)
-//     } else {
-//         console.log(`O curso ${courses[queryCourse].course} ficou no total de R$ ${courses[queryCourse].price.toFixed(2)}. Em ${nInterest}x de ${(courses[queryCourse].price/nInterest).toFixed(2)}.`)
-//     }
-// };
+// Função parcelar curso
+
+let shopCart = [];
+
+const courseInterest = (nInterest, shopCart) => {
+
+    let discount = 0;
+    let totalPrice = 0;
+
+    for (const item of shopCart) {
+        totalPrice += item
+    }
+
+    switch (shopCart.length) {
+        case 3:
+            discount = 0.85;
+            break;
+        case 2:
+            discount = 0.90;
+            break;
+        default:
+            discount = 1;
+            break;
+    }
+
+    totalPrice *= discount;
+
+    if (nInterest <= 2) {
+        totalPrice *= 0.8
+        console.log(`O curso ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}. Foi concedido um desconto de 20%`)
+    } else {
+        console.log(`O curso ficou no total de R$ ${totalPrice}. Em ${nInterest}x de ${(totalPrice/nInterest).toFixed(2)}.`)
+    }
+};
 
 // const queryCourse = Number(prompt("Digite o número de acordo com o curso desejado:\n 1- HTML\n2-Javascript\n3-APIs REST"))-1;
 // const queryInterest = Number(prompt("Quantas vezes você deseja parcelar o curso?"));
-// courseInterest(queryInterest);
+// courseInterest(3, shopCart);
 
 // Função para buscar dados do curso
 
@@ -179,7 +205,7 @@ const searchStudent = (studentName) => {
     for (let i = 0; i < students.length; i++) {
         if (students[i].student === studentName) {
             return students[i]
-        } 
+        }
     }
     return `Aluno não encontrado`
 }
@@ -193,8 +219,8 @@ const registerStudent = (studentName, course, className, nInterest) => {
     let coursePrice = buscarCurso(course).price
     let interestValue;
 
-    discount ? interestValue = coursePrice*0.8/nInterest : interestValue = coursePrice/nInterest
-    
+    discount ? interestValue = coursePrice * 0.8 / nInterest : interestValue = coursePrice / nInterest
+
     let newStudent = {
         student: studentName,
         class: className,
@@ -207,11 +233,29 @@ const registerStudent = (studentName, course, className, nInterest) => {
 
     students.push(newStudent)
     console.log(`Novo aluno matriculado:\n`)
-    console.log(students[students.length -1])
+    console.log(students[students.length - 1])
 }
 
-registerStudent("Samuel", "JavaScript", "Ozemela", 2)
+// registerStudent("Samuel", "JavaScript", "Ozemela", 2)
 
-// Função para parcelar o curso
+// Função Carrinho de Compras
 
+const shopCartAdd = (courseName) => {
+    courseValue = buscarCurso(courseName).price
+    shopCart.push(courseValue)
+    return shopCart
+}
+
+// shopCartAdd("JavaScript")
+// shopCartAdd("HTML e CSS")
+// console.log(shopCart);
+
+// Função para buscar alunos
+
+const studentRecord = (studentName) => {
+    return students.filter((valor) => valor.student === studentName)
+}
+
+// console.log(students);
+console.log(studentRecord("Lashana Lynch"));
 
