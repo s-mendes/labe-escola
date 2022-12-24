@@ -176,12 +176,15 @@ const courseInterest = (nInterest, shopCart) => {
 // Função para buscar dados do curso
 
 const buscarCurso = (nomeCurso) => {
-    for (let i = 0; i < courses.length; i++) {
-        if (courses[i].course === nomeCurso) {
-            return courses[i];
-        }
-    }
-    return `Curso não encontrado`
+    // for (let i = 0; i < courses.length; i++) {
+    //     if (courses[i].course === nomeCurso) {
+    //         return courses[i];
+    //     }
+    // }
+
+    let curso = courses.find(curso => curso.course === nomeCurso)
+
+    return curso
 }
 
 // console.log(buscarCurso(prompt("Digite o nome do curso")));
@@ -189,25 +192,32 @@ const buscarCurso = (nomeCurso) => {
 // Função para buscar turma
 
 const buscarTurma = (nomeTurma) => {
-    for (let i = 0; i < classes.length; i++) {
-        if (classes[i].class === nomeTurma) {
-            return classes[i];
-        }
-    }
-    return `Turma não encontrada`
+    // for (let i = 0; i < classes.length; i++) {
+    //     if (classes[i].class === nomeTurma) {
+    //         return classes[i];
+    //     }
+    // }
+    // return `Turma não encontrada`
+    
+    let turma = classes.filter((classes) => classes.class == nomeTurma)
+
+    return turma.length > 0 ? turma : "Turma não encontrada"
+
 }
 
-// buscarTurma(prompt("Digite o nome da turma"))
+// console.log(buscarTurma(prompt("Digite o nome da turma")))
 
 // Função para buscar aluno
 
 const searchStudent = (studentName) => {
-    for (let i = 0; i < students.length; i++) {
-        if (students[i].student === studentName) {
-            return students[i]
-        }
-    }
-    return `Aluno não encontrado`
+    // for (let i = 0; i < students.length; i++) {
+    //     if (students[i].student === studentName) {
+    //         return students[i]
+    //     }
+    // }
+    let student = students.find(students => students.student.includes(studentName));
+
+    return student === undefined ? `Aluno não encontrado` : student
 }
 
 // console.log(searchStudent(prompt(`Digite o nome do aluno`)));
@@ -256,6 +266,7 @@ const studentRecord = (studentName) => {
     return students.filter((valor) => valor.student === studentName)
 }
 
+
 // console.log(students);
-console.log(studentRecord("Lashana Lynch"));
+// console.log(studentRecord("Lashana Lynch"));
 
