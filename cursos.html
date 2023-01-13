@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <script src="./students.js" defer></script>
+    <script src="./classes.js" defer></script>
+    <script src="./course.js" defer></script>
+    <script src="./main.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -17,18 +20,114 @@
         <a href="index.html">
             <img src="img/logo.png" alt="LabEscola logo" id="logo">
         </a>
-        <nav  class="menu">
+        <nav class="menu">
             <a href="index.html">Home</a>
             <a href="cursos.html" id="selected">Cursos</a>
             <a href="contato.html">Contato</a>
             <a href="adm.html">Area ADM</a>
         </nav>
         <div class="whatsapp">
-            <a href="#"><img id="whatsapp"src="./img/whatsapp.png" alt="whatsapp"></a>
+            <a href="#"><img id="whatsapp" src="./img/whatsapp.png" alt="whatsapp"></a>
         </div>
     </header>
 
     <main>
+
+        <div class="cursos">
+            <div class="cards-cursos">
+                <div>
+                    <h2>HTML e CSS</h2>
+                    <p>Maecenas ullamcorper, metus eu mattis tristique, ante metus ultrices ex, vel auctor tortor dolor
+                        necdui. Nullam vestibulum eleifend ipsum elementum accumsan. Fusce tempus finibus odio a
+                        faucibus. Etiam justo ante, viverra ut iaculis vel, vulputate sed massa. Quisque tincidunt
+                        ultricies enim, ac
+                    </p>
+                </div>
+                <div>
+                    <h2>JavaScript</h2>
+                    <p>Maecenas ullamcorper, metus eu mattis tristique, ante metus ultrices ex, vel auctor tortor dolor
+                        nec dui. Nullam vestibulum eleifend ipsum elementum accumsan. Fusce tempus finibus odio a
+                        faucibus. Etiam justo ante, viverra ut iaculis vel, vulputate sed massa. Quisque tincidunt
+                        ultricies enim, ac</p>
+                </div>
+                <div>
+                    <h2>APIs e REST</h2>
+                    <p>Maecenas ullamcorper, metus eu mattis tristique, ante metus ultrices ex, vel auctor tortor dolor
+                        nec dui. Nullam vestibulum eleifend ipsum elementum accumsan. Fusce tempus finibus odio a
+                        faucibus. Etiam justo ante, viverra ut iaculis vel, vulputate sed massa. Quisque tincidunt
+                        ultricies enim, ac</p>
+                </div>
+            </div>
+            <a href="./contato.html">
+                <button>Quero fazer parte!</button>
+            </a>
+        </div>
+
+        <div class="descricao-cursos">
+            <div class="cards-descricao">
+                <h2>HTML e CSS</h2>
+                <div>
+                    <h3>Módulo 1</h3>
+                    <ul>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Módulo 2</h3>
+                    <ul>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cards-descricao">
+                <h2>JavaScript</h2>
+                <div>
+                    <h3>Módulo 1</h3>
+                    <ul>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Módulo 2</h3>
+                    <ul>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cards-descricao">
+                <h2>APIs e REST</h2>
+                <div>
+                    <h3>Módulo 1</h3>
+                    <ul>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Módulo 2</h3>
+                    <ul>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                        <li>Suspendisse condimentum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
     </main>
 
@@ -38,7 +137,10 @@
         <div class="rodape">
             <div>
                 <h2 class="distancia">Endereço</h2>
-                <img class="distancia" src="./img/map.png" alt="Endereço">
+                <iframe width="470" height="250" style="border:0" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJw-Ssx6dXzpQRWsm1ucpZZ1g&key=AIzaSyCT5E6IJEhntFZMqd0MVpkHd4qNxtzWTao">
+                </iframe>
                 <p class="distancia">R. Pais Leme, 215, CEP 05424-150 - Pinheiros</p>
             </div>
 

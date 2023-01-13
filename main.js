@@ -1,138 +1,24 @@
-/* const course = ["HTML e CSS", "JavaScript", "APIs REST"];
-const classes = ["HC1", "JS1", "JS2", "REST1", "REST2"];
-const students = ["Marcos Socrates Pontes", "Ruan Helenice da Silva Pinto", "Ítalo Souza Peireira", "Samuel Mendes"]; */
+const courses = [];
+courses.push(new Course("HTML e CSS", "Curso foca em aprender HTML e CSS", "1 mês", 500));
+courses.push(new Course("JavaScript", "Curso para aprender algítimos em JavaScript", "2 meses", 900));
+courses.push(new Course ("APIs REST", "Curso para aprender interface de programação API REST", "6 meses", 2000));
 
-// Cursos oferecidos pela escola
+const classes = [];
+classes.push(new Class("Hipática", courses[1].course, "30/11/2022", "30/01/2023", 150, "Noturno", false));
+classes.push(new Class("Sibyla", courses[1].course, "30/10/2022", "30/12/2022", 200, "Integral", false));
+classes.push(new Class("Curie", courses[0].course, "15/09/2022", "15/10/2022", 180, "Integral", true));
+classes.push(new Class("Zhenyi", courses[0].course, "01/11/2022", "01/01/2023", 80, "Integral", false));
+classes.push(new Class("Clarke", courses[0].course, "04/07/2022", "04/09/2022", 200, "Noturno", true));
+classes.push(new Class("Blackwell", courses[2].course, "20/03/2022", "20/06/2022", 100, "Integral", true));
+classes.push(new Class("Elion", courses[2].course, "12/01/2022", "12/06/2022", 200, "Noturno", true));
+classes.push(new Class("Burnell", courses[2].course, "18/10/2022", "18/04/2023", 90, "Integral", false));
 
-let courses = [
-    {
-        course: "HTML e CSS",
-        description: "Curso focado em aprender HTML e CSS",
-        duration: "1 meses",
-        price: 500
-    },
-    {
-        course: "JavaScript",
-        description: "Curso para aprender algorítimos em JavaScript",
-        duration: "2 meses",
-        price: 900
-    },
-    {
-        course: "APIs REST",
-        description: "Curso para aprender interface de programação API REST",
-        duration: "6 meses",
-        price: 2000
-    }
-]
 
-// Turmas do curso
 
-let classes = [
-    {
-        class: "Hipática",
-        course: courses[1].course,
-        start: "30/11/2022",
-        end: "30/01/2023",
-        numberOfStudents: 150,
-        period: "Noturno",
-        concluded: false
-    },
-    {
-        class: "Sibyla",
-        course: courses[1].course,
-        start: "30/10/2022",
-        end: "30/12/2022",
-        numberOfStudents: 200,
-        period: "Integral",
-        concluded: false
-    },
-    {
-        class: "Curie",
-        course: courses[0].course,
-        start: "15/09/2022",
-        end: "15/10/2022",
-        numberOfStudents: 180,
-        period: "Noturno",
-        concluded: true
-    },
-    {
-        class: "Zhenyi",
-        course: courses[0].course,
-        start: "01/11/2022",
-        end: "01/01/2023",
-        numberOfStudents: 80,
-        period: "Integral",
-        concluded: false
-    },
-    {
-        class: "Clarke",
-        course: courses[0].course,
-        start: "04/07/2022",
-        end: "04/09/2022",
-        numberOfStudents: 200,
-        period: "Noturno",
-        concluded: true
-    },
-    {
-        class: "Blackwell",
-        course: courses[2].course,
-        start: "20/03/2022",
-        end: "20/06/2022",
-        numberOfStudents: 100,
-        period: "Integral",
-        concluded: true
-    },
-    {
-        class: "Elion",
-        course: courses[2].course,
-        start: "12/01/2022",
-        end: "12/06/2022",
-        numberOfStudents: 200,
-        period: "Norturno",
-        concluded: true
-    },
-    {
-        class: "Burnell",
-        course: courses[2].course,
-        start: "18/10/2022",
-        end: "18/04/2023",
-        numberOfStudents: 90,
-        period: "Integral",
-        concluded: false
-    }
-]
-
-// Estudantes Matriculados
-
-let students = [
-    {
-        student: "Chris Evans",
-        class: classes[0].class,
-        course: courses[1].course,
-        price: courses[1].price,
-        nInterest: 9,
-        discount: false,
-        interest: 1
-    },
-    {
-        student: "Halle Berry",
-        class: classes[7].class,
-        course: courses[2].course,
-        price: courses[2].price,
-        nInterest: 4,
-        discount: false,
-        interest: 1
-    },
-    {
-        student: "Lashana Lynch",
-        class: classes[3].class,
-        course: courses[0].course,
-        price: courses[0].price,
-        nInterest: 4,
-        discount: false,
-        interest: 1
-    }
-]
+const students = [];
+students.push(new Student("Chris Evans", classes[0].class, courses[1].course, courses[1].price, 9, false, 1));
+students.push(new Student("Halle Berry", classes[7].class, courses[2].course, courses[2].price, 4, false, 1));
+students.push(new Student("Lashana Lynch", classes[3].class, courses[0].course, courses[0].price, 4, false, 1));
 
 // Função parcelar curso
 
