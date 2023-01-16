@@ -36,10 +36,6 @@ header {
     align-items: center;
 }
 
-#logo {
-
-}
-
 nav {
     overflow: hidden;
     background-color: #fff;
@@ -297,4 +293,90 @@ textarea {
 
 .cards-cursos div h2 {
     padding-bottom: 3rem;
+}
+
+.menu-adm {
+    margin-top: 4rem;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.menu-adm ul li {
+    padding: 1rem 0;
+}
+
+.menu-adm a {
+    color: #707070;
+    font-weight: bold;
+}
+
+#selecionado a {
+    color: white;
+}
+
+.menu-adm a:hover {
+    color: #bbb1b1;
+}
+
+.adm {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+#adm-turmas {
+    background-color: #f6c34a;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.buscar-turma {
+    padding: 3rem;
+    width: 30rem;
+    display: flex;
+    align-items: center;
+}
+
+.buscar-turma input, .buscar-turma button  {
+    height: 43px;
+    border: 0px;
+}
+
+.buscar-turma input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.buscar-turma button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 2.5rem;
+}
+
+#turmas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
+    padding: 2rem 10rem;
+    flex-wrap: wrap;
+    width: 80%
+
+}
+
+#turmas>div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+#turmas h3 {
+    text-align: center;
+    padding-bottom: 1rem;
 }
