@@ -369,7 +369,7 @@ textarea {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 2rem;
-    padding: 2rem 10rem;
+    padding: 2rem 6rem;
     width: 80%;
 
 
@@ -384,4 +384,43 @@ textarea {
 #turmas h3 {
     text-align: center;
     padding-bottom: 1rem;
+}
+
+#matriculas {
+    background-color: #f6c34a;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 4rem 0;
+}
+
+#matriculas div {
+    width: 350px;
+    justify-self: center;
+}
+
+#matriculas h2, #financeiro h2{
+    padding-bottom: 1rem;
+}
+
+#matriculas input, #financeiro input{
+    padding: 1rem;
+    border: none;
+    
+}
+
+.button button, #financeiro button{
+    margin-top: 1.5rem;
+    height: 50px;
+}
+
+#financeiro {
+    background-color: #f6c34a;
+    display: flex;
+    justify-content: space-around;
+    gap: 5rem;
+    padding: 5rem;
+}
+
+#financeiro>div {
+    width: 20em;
 }

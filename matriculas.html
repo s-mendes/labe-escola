@@ -41,8 +41,34 @@
             </ul>
         </aside>
 
-        <section>
+        <section id="matriculas">
+            <div>
+                <h2>Matrículas</h2>
+                <form action="" onsubmit="event.preventDefault()">
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome">
+                    </div>
+                    <div>
+                        <label for="curso">Curso</label>
+                        <input type="text" name="curso" id="curso">
+                    </div>
+                    <div>
+                        <label for="turma">Turma</label>
+                        <input type="text" name="turma" id="turma">
+                    </div>
+                    <div>
+                        <label for="parcelas">Número de parcelas</label>
+                        <input type="text" name="parcelas" id="parcelas">
+                    </div>
+                    <div class="button">
+                        <button type="submit">Matricular aluno</button>
+                      </div>
+                </form>
+            </div>
+            <div id="confirmacao">
 
+            </div>
         </section>
 
     </main>
