@@ -1,7 +1,7 @@
 const courses = [];
 courses.push(new Course("HTML e CSS", "Curso foca em aprender HTML e CSS", "1 mês", 500));
 courses.push(new Course("JavaScript", "Curso para aprender algítimos em JavaScript", "2 meses", 900));
-courses.push(new Course ("APIs REST", "Curso para aprender interface de programação API REST", "6 meses", 2000));
+courses.push(new Course("APIs REST", "Curso para aprender interface de programação API REST", "6 meses", 2000));
 
 const classes = [];
 classes.push(new Class("Hipática", courses[1].course, "30/11/2022", "30/01/2023", 150, "Noturno", false));
@@ -51,7 +51,7 @@ const courseInterest = (nInterest, shopCart) => {
         totalPrice *= 0.8
         console.log(`O curso ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}. Foi concedido um desconto de 20%`)
     } else {
-        console.log(`O curso ficou no total de R$ ${totalPrice}. Em ${nInterest}x de ${(totalPrice/nInterest).toFixed(2)}.`)
+        console.log(`O curso ficou no total de R$ ${totalPrice}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}.`)
     }
 };
 
@@ -68,26 +68,52 @@ const buscarCurso = (nomeCurso) => {
     //     }
     // }
 
-    let curso = courses.find(curso => curso.course === nomeCurso)
+    let curso = courses.find(curso => curso.course === nomeCurso);
 
-    return curso
+    return curso;
 }
 
 // console.log(buscarCurso(prompt("Digite o nome do curso")));
 
 // Função para buscar turma
 
-const buscarTurma = (nomeTurma) => {
-    // for (let i = 0; i < classes.length; i++) {
-    //     if (classes[i].class === nomeTurma) {
-    //         return classes[i];
-    //     }
-    // }
-    // return `Turma não encontrada`
-    
-    let turma = classes.filter((classes) => classes.class == nomeTurma)
+const buscarTurma = () => {
 
-    return turma.length > 0 ? turma : "Turma não encontrada"
+    const nomeTurma = document.getElementById("buscar-turma");
+
+    let turmaPesquisada = classes.filter((classes) => classes.class.toLowerCase() == nomeTurma.value.toLowerCase());
+
+    if (turmaPesquisada.length > 0) {
+        if (document.getElementById("error")) {
+            document.getElementById("error").remove();
+        }
+        turmas.innerHTML = "";
+        const turma = document.createElement("div");
+        addElement(turma, "h3", turmaPesquisada[0].class);
+        addDescription("Curso: ", turmaPesquisada[0].course, turma);
+        addDescription("Início: ", turmaPesquisada[0].start, turma);
+        addDescription("Término: ", turmaPesquisada[0].end, turma);
+        addDescription("Alunos: ", turmaPesquisada[0].numberOfStudents, turma);
+        addDescription("Período: ", turmaPesquisada[0].period, turma);
+        addDescription("Concluído: ", turmaPesquisada[0].concluded === true ? "Sim" : "Não", turma);
+        turmas.appendChild(turma);
+        nomeTurma.value = "";
+
+    } else {
+        turmas.innerHTML = "";
+        nomeTurma.value = "";
+        const busca = document.getElementById("busca")
+        const rendError = document.createElement("p");
+        if (document.getElementById("error")) {
+            document.getElementById("error").remove();
+        }
+        rendError.id = "error"
+        rendError.innerHTML = "Turma não encontrada";
+
+        busca.insertAdjacentElement('afterend', rendError);
+
+        renderizarTurmas();
+    }
 
 }
 
@@ -156,15 +182,15 @@ const studentRecord = (studentName) => {
 // console.log(students);
 // console.log(studentRecord("Lashana Lynch"));
 
-function addElement (parent, elementType, text) {
-	const element = document.createElement(elementType);
-	if (text !== "" && text !== undefined && text !== null) {
-		element.innerText = text;
-	}
-	parent.appendChild(element);
+function addElement(parent, elementType, text) {
+    const element = document.createElement(elementType);
+    if (text !== "" && text !== undefined && text !== null) {
+        element.innerText = text;
+    }
+    parent.appendChild(element);
 }
 
-function addDescription (title, result, parent) {
+function addDescription(title, result, parent) {
     const description = document.createElement("div");
     addElement(description, "b", title);
     addElement(description, "span", result);
@@ -173,14 +199,19 @@ function addDescription (title, result, parent) {
 
 const turmas = document.getElementById("turmas");
 
-for (const className of classes) {
-    const turma = document.createElement("div");
-    addElement(turma, "h3", className.class);
-    addDescription("Curso: ", className.course, turma);
-    addDescription("Início: ", className.start, turma);
-    addDescription("Término: ", className.end, turma);
-    addDescription("Alunos: ", className.numberOfStudents, turma);
-    addDescription("Período: ", className.period, turma);
-    addDescription("Concluído: ", className.concluded === true ? "Sim" : "Não", turma);
-    turmas.appendChild(turma);
+function renderizarTurmas() {
+    for (const className of classes) {
+        const turma = document.createElement("div");
+        addElement(turma, "h3", className.class);
+        addDescription("Curso: ", className.course, turma);
+        addDescription("Início: ", className.start, turma);
+        addDescription("Término: ", className.end, turma);
+        addDescription("Alunos: ", className.numberOfStudents, turma);
+        addDescription("Período: ", className.period, turma);
+        addDescription("Concluído: ", className.concluded === true ? "Sim" : "Não", turma);
+        turmas.appendChild(turma);
+    }
 }
+
+renderizarTurmas()
+
