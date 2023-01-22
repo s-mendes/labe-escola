@@ -9,6 +9,7 @@
     <script src="./classes.js" defer></script>
     <script src="./course.js" defer></script>
     <script src="./main.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -47,8 +48,12 @@
                 <h2>Financeiro</h2>
                 <form action="#" onsubmit="event.preventDefault()">
                     <div>
-                        <label for="curso">Curso</label>
-                        <input type="text" name="curso" id="curso">
+                        <label for="addCurso">Curso</label>
+                        <div name="addCurso" id="addCurso">
+                            <span>HTML <img src="./img/excluir.png" alt="excluir"></span>
+                            <span>JavaScript <img src="./img/excluir.png" alt="excluir"></span>
+                        </div>
+                        <p><u>Adicionar outro curso</u></p>
                     </div>
                     <div>
                         <label for="parcelas">Número de parcelas</label>

@@ -9,6 +9,8 @@
     <script src="./classes.js" defer></script>
     <script src="./course.js" defer></script>
     <script src="./main.js" defer></script>
+    <script src="./matriculasDOM.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="./style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -44,26 +46,30 @@
         <section id="matriculas">
             <div>
                 <h2>Matrículas</h2>
-                <form action="" onsubmit="event.preventDefault()">
+                <form action="#" onsubmit="newStudentRegister(); return false; event.preventDefault()">
                     <div>
                         <label for="nome">Nome</label>
                         <input type="text" name="nome" id="nome">
                     </div>
                     <div>
                         <label for="curso">Curso</label>
-                        <input type="text" name="curso" id="curso">
+                        <input type="text" name="curso" id="curso" list="cursos">
+                        <datalist id="cursos">
+                        </datalist>
                     </div>
                     <div>
                         <label for="turma">Turma</label>
-                        <input type="text" name="turma" id="turma">
+                        <input type="text" name="turma" id="turma" list="lista-turmas">
+                        <datalist id="lista-turmas">
+                        </datalist>
                     </div>
                     <div>
                         <label for="parcelas">Número de parcelas</label>
-                        <input type="text" name="parcelas" id="parcelas">
+                        <input type="number" name="parcelas" id="parcelas">
                     </div>
                     <div class="button">
                         <button type="submit">Matricular aluno</button>
-                      </div>
+                    </div>
                 </form>
             </div>
             <div id="confirmacao">
