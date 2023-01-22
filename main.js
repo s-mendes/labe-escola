@@ -62,13 +62,8 @@ const courseInterest = (nInterest, shopCart) => {
 // Função para buscar dados do curso
 
 const buscarCurso = (nomeCurso) => {
-    // for (let i = 0; i < courses.length; i++) {
-    //     if (courses[i].course === nomeCurso) {
-    //         return courses[i];
-    //     }
-    // }
 
-    let curso = courses.find(curso => curso.course === nomeCurso);
+    let curso = courses.find(curso => curso.course.toLowerCase === nomeCurso.toLowerCase);
 
     return curso;
 }
@@ -81,7 +76,9 @@ const buscarTurma = () => {
 
     const nomeTurma = document.getElementById("buscar-turma");
 
-    let turmaPesquisada = classes.filter((classes) => classes.class.toLowerCase() == nomeTurma.value.toLowerCase());
+    let turmaPesquisada = classes.filter((classes) => classes.class.toLowerCase().includes(nomeTurma.value.toLowerCase()));
+
+    console.log(turmaPesquisada);
 
     if (turmaPesquisada.length > 0) {
         if (document.getElementById("error")) {
@@ -148,14 +145,16 @@ const registerStudent = (studentName, course, className, nInterest) => {
         class: className,
         course: course,
         price: coursePrice,
-        nInrerest: nInterest,
+        nInterest: nInterest,
         discount: discount,
         interest: interestValue
     }
 
     students.push(newStudent)
-    console.log(`Novo aluno matriculado:\n`)
-    console.log(students[students.length - 1])
+    // console.log(`Novo aluno matriculado:\n`)
+    // console.log(students[students.length - 1])
+
+    registerConfirm(newStudent.student, newStudent.course, newStudent.class, newStudent.nInterest)
 }
 
 // registerStudent("Samuel", "JavaScript", "Ozemela", 2)
@@ -189,29 +188,4 @@ function addElement(parent, elementType, text) {
     }
     parent.appendChild(element);
 }
-
-function addDescription(title, result, parent) {
-    const description = document.createElement("div");
-    addElement(description, "b", title);
-    addElement(description, "span", result);
-    parent.appendChild(description);
-}
-
-const turmas = document.getElementById("turmas");
-
-function renderizarTurmas() {
-    for (const className of classes) {
-        const turma = document.createElement("div");
-        addElement(turma, "h3", className.class);
-        addDescription("Curso: ", className.course, turma);
-        addDescription("Início: ", className.start, turma);
-        addDescription("Término: ", className.end, turma);
-        addDescription("Alunos: ", className.numberOfStudents, turma);
-        addDescription("Período: ", className.period, turma);
-        addDescription("Concluído: ", className.concluded === true ? "Sim" : "Não", turma);
-        turmas.appendChild(turma);
-    }
-}
-
-renderizarTurmas()
 

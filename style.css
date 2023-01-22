@@ -274,9 +274,10 @@ textarea {
 
 .cards-cursos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(387px, 1fr));
     padding: 5rem 8rem;
     gap: 5rem;
+    
     
 }
 
@@ -289,6 +290,7 @@ textarea {
     border-radius: 8px;
     justify-items: center;
     max-width: 390px;
+    box-shadow: 5px 5px 5px 5px #0e0e0e17;
 }
 
 .cards-cursos div h2 {
@@ -379,6 +381,7 @@ textarea {
     background-color: white;
     border-radius: 10px;
     padding: 2rem;
+    box-shadow: 5px 5px 5px 5px #0e0e0e17;
 }
 
 #turmas h3 {
@@ -417,10 +420,48 @@ textarea {
     background-color: #f6c34a;
     display: flex;
     justify-content: space-around;
-    gap: 5rem;
     padding: 5rem;
 }
 
 #financeiro>div {
     width: 20em;
+}
+
+#addCurso {
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 2em;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+
+}
+
+#addCurso span {
+    border: 2px dotted black;
+    border-radius: 5px;
+    margin: 5px 0 5px 5px;
+    font-size: 12px;
+    padding: 2px;
+}
+
+#addCurso img {
+    width: 9px;
+    height: 9px;
+}
+
+#confirmacao div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+#confirmacao img {
+    height: 44px;
+    width: 44px;
 }
