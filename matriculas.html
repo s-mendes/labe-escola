@@ -49,23 +49,23 @@
                 <form action="#" onsubmit="newStudentRegister(); return false; event.preventDefault()">
                     <div>
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome">
+                        <input type="text" name="nome" id="nome" required>
                     </div>
                     <div>
                         <label for="curso">Curso</label>
-                        <input type="text" name="curso" id="curso" list="cursos">
+                        <input type="text" name="curso" id="curso" list="cursos" required>
                         <datalist id="cursos">
                         </datalist>
                     </div>
                     <div>
                         <label for="turma">Turma</label>
-                        <input type="text" name="turma" id="turma" list="lista-turmas">
+                        <input type="text" name="turma" id="turma" list="lista-turmas" required>
                         <datalist id="lista-turmas">
                         </datalist>
                     </div>
                     <div>
                         <label for="parcelas">Número de parcelas</label>
-                        <input type="number" name="parcelas" id="parcelas">
+                        <input type="number" name="parcelas" id="parcelas" min="1" max="12" required>
                     </div>
                     <div class="button">
                         <button type="submit">Matricular aluno</button>

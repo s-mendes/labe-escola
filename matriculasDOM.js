@@ -44,7 +44,8 @@ function registerConfirm(student, course, classRoom, nInterest) {
     <p><b>Nome:</b> ${student}</p>
     <p><b>Curso:</b> ${course}</p>
     <p><b>Turma:</b> ${classRoom}</p>
-    <p><b>Parcelas:</b> ${nInterest}`;
+    <p><b>Parcelas:</b> ${nInterest}</p>
+    `;
     } else {
         // const newStudent = document.getElementById("confirmacao");
         // newStudent.innerHTML = `<h2 style="color: red">Insira todos os campos</h2>`
