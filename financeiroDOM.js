@@ -98,8 +98,8 @@ function relatorioAluno(event) {
     const aluno = searchStudent(document.getElementById("nome").value);
     const relatorio = document.createElement("div");
 
-    if (document.getElementById("nome").value === ``) {
-        relatorio.innerHTML = "Insira o nome do aluno no campo acima";
+    if (aluno === `Aluno não encontrado`) {
+        relatorio.innerHTML = "Aluno não encontrado";
         relatorioAluno.appendChild(relatorio);
         return
     }

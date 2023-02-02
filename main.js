@@ -80,8 +80,6 @@ const buscarTurma = () => {
 
     let turmaPesquisada = classes.filter((classes) => classes.class.toLowerCase().includes(nomeTurma.value.toLowerCase()));
 
-    console.log(turmaPesquisada);
-
     if (turmaPesquisada.length > 0) {
         if (document.getElementById("error")) {
             document.getElementById("error").remove();
@@ -94,7 +92,7 @@ const buscarTurma = () => {
         addDescription("Término: ", turmaPesquisada[0].end, turma);
         addDescription("Alunos: ", turmaPesquisada[0].numberOfStudents, turma);
         addDescription("Período: ", turmaPesquisada[0].period, turma);
-        addDescription("Concluído: ", turmaPesquisada[0].concluded === true ? "Sim" : "Não", turma);
+        addDescription("Concluído: ", turmaPesquisada[0].concluded ? "Sim" : "Não", turma);
         turmas.appendChild(turma);
         nomeTurma.value = "";
 
