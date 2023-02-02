@@ -16,7 +16,7 @@ function renderizarTurmas() {
         addDescription("Término: ", className.end, turma);
         addDescription("Alunos: ", className.numberOfStudents, turma);
         addDescription("Período: ", className.period, turma);
-        addDescription("Concluído: ", className.concluded === true ? "Sim" : "Não", turma);
+        addDescription("Concluído: ", className.concluded ? "Sim" : "Não", turma);
         turmas.appendChild(turma);
     }
 }

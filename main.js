@@ -13,8 +13,6 @@ classes.push(new Class("Blackwell", courses[2].course, "20/03/2022", "20/06/2022
 classes.push(new Class("Elion", courses[2].course, "12/01/2022", "12/06/2022", 200, "Noturno", true));
 classes.push(new Class("Burnell", courses[2].course, "18/10/2022", "18/04/2023", 90, "Integral", false));
 
-
-
 const students = [];
 students.push(new Student("Chris Evans", classes[0].class, courses[1].course, courses[1].price, 9, false, 1));
 students.push(new Student("Halle Berry", classes[7].class, courses[2].course, courses[2].price, 4, false, 1));
@@ -29,8 +27,12 @@ const courseInterest = (nInterest, shopCart) => {
     let discount = 0;
     let totalPrice = 0;
 
+    if (shopCart.length === 0) {
+        return `Nenhum curso foi selecionado`
+    }
+
     for (const item of shopCart) {
-        totalPrice += item
+        totalPrice += item.price
     }
 
     switch (shopCart.length) {
@@ -49,9 +51,9 @@ const courseInterest = (nInterest, shopCart) => {
 
     if (nInterest <= 2) {
         totalPrice *= 0.8
-        console.log(`O curso ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}. Foi concedido um desconto de 20%`)
+        return `O curso ficou no total de R$ ${totalPrice.toFixed(2)}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}. Foi concedido um desconto de 20%`
     } else {
-        console.log(`O curso ficou no total de R$ ${totalPrice}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}.`)
+        return `O curso ficou no total de R$ ${totalPrice}. Em ${nInterest}x de ${(totalPrice / nInterest).toFixed(2)}.`
     }
 };
 
@@ -63,7 +65,7 @@ const courseInterest = (nInterest, shopCart) => {
 
 const buscarCurso = (nomeCurso) => {
 
-    let curso = courses.find(curso => curso.course.toLowerCase === nomeCurso.toLowerCase);
+    let curso = courses.find(curso => curso.course.toLowerCase() === nomeCurso.toLowerCase());
 
     return curso;
 }
@@ -78,8 +80,6 @@ const buscarTurma = () => {
 
     let turmaPesquisada = classes.filter((classes) => classes.class.toLowerCase().includes(nomeTurma.value.toLowerCase()));
 
-    console.log(turmaPesquisada);
-
     if (turmaPesquisada.length > 0) {
         if (document.getElementById("error")) {
             document.getElementById("error").remove();
@@ -92,7 +92,7 @@ const buscarTurma = () => {
         addDescription("Término: ", turmaPesquisada[0].end, turma);
         addDescription("Alunos: ", turmaPesquisada[0].numberOfStudents, turma);
         addDescription("Período: ", turmaPesquisada[0].period, turma);
-        addDescription("Concluído: ", turmaPesquisada[0].concluded === true ? "Sim" : "Não", turma);
+        addDescription("Concluído: ", turmaPesquisada[0].concluded ? "Sim" : "Não", turma);
         turmas.appendChild(turma);
         nomeTurma.value = "";
 
@@ -124,7 +124,7 @@ const searchStudent = (studentName) => {
     //         return students[i]
     //     }
     // }
-    let student = students.find(students => students.student.includes(studentName));
+    let student = students.find(students => students.student.toLowerCase().includes(studentName.toLowerCase()));
 
     return student === undefined ? `Aluno não encontrado` : student
 }
@@ -162,8 +162,14 @@ const registerStudent = (studentName, course, className, nInterest) => {
 // Função Carrinho de Compras
 
 const shopCartAdd = (courseName) => {
-    courseValue = buscarCurso(courseName).price
+    courseValue = buscarCurso(courseName)
     shopCart.push(courseValue)
+    return shopCart
+}
+
+const shopCartRemove = (courseName) => {
+    const index = shopCart.findIndex(course => course.course.toLowerCase() === courseName.toLowerCase())
+    shopCart.splice(index, 1)
     return shopCart
 }
 
